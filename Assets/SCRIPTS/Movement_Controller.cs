@@ -6,6 +6,7 @@ public class Movement_Controller: MonoBehaviour
     [Header("Objects")]
     public Rigidbody2D _rb;
     public Collider2D _clldr;
+    public Animator _animator;
 
     [Header("Input Variables")]
     public float Speed;
@@ -13,22 +14,17 @@ public class Movement_Controller: MonoBehaviour
 
     [Header("Direction Reader")]
     public bool LookingRight = true;
-    public Vector2 TurnedAround;
 
     [Header("Movement Variables")]
     public Vector2 DebugMove;
 
-    [Header("Jumping")]
-    public float JumpForce;
-    public float JumpCancelSupresion = 0.5f;
-    public Vector2 JumpDirection;
+
 
     private void Awake()
     {   // START COMPONENTS
         _rb = GetComponent<Rigidbody2D>();
         _clldr = GetComponent<Collider2D>();
-
-
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -43,6 +39,7 @@ public class Movement_Controller: MonoBehaviour
         _rb.linearVelocity = new Vector3(HorizontalMove.x * Speed, _rb.linearVelocity.y);
 
 
+        _animator.SetFloat("Yvelocity", _rb.linearVelocity.y);
 
     }
 
@@ -53,7 +50,9 @@ public class Movement_Controller: MonoBehaviour
         {   // MOVEMENT CHANGES
             HorizontalMove = context.ReadValue<Vector2>();
 
-            if(HorizontalMove.x > 0 )
+            _animator.SetBool("Running", true); // TRANSITION TO RUNNING
+
+            if (HorizontalMove.x > 0 )
             { // IF LAST INPUT IS RIGHT, LOOKS RIGHT AND KEEPS LOOKING RIGTH
                 LookingRight = true;
             }
@@ -66,21 +65,10 @@ public class Movement_Controller: MonoBehaviour
         else if(context.canceled)// IF KEYBINDS RELEASED, STANDS STILL
         {
             HorizontalMove = Vector2.zero;
-        }
-
-    }
-    // JUMP
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if (context.performed) // JUMP HOLDED; FULL FORCE
-        {
-            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, JumpForce);
-        }
-        else if (context.canceled) // JUMP RELEASED MID AIR, LESS FORCE
-        {
-            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _rb.linearVelocity.y * JumpCancelSupresion);
+            _animator.SetBool("Running", false); // TRANSITION TO IDLE
 
         }
+
     }
 
     // TURNING AROUND
