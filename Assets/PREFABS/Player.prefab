@@ -173,6 +173,7 @@ MonoBehaviour:
   _rb: {fileID: 0}
   _clldr: {fileID: 0}
   _animator: {fileID: 0}
+  _canvas: {fileID: 0}
   Speed: 0
   HorizontalMove: {x: 0, y: 0}
   LookingRight: 1
@@ -196,7 +197,6 @@ MonoBehaviour:
   JumpForce: 0
   JumpCancelSupresion: 0.5
   JumpCount: 0
-  JumpCountMax: 2
   IsGrounded: 0
   GroundedCheckSize: 0
   GroundedCheckRadius: 0
@@ -218,6 +218,7 @@ MonoBehaviour:
   _rb: {fileID: 0}
   _clldr: {fileID: 0}
   _animator: {fileID: 0}
+  arrow: {fileID: 8377652645269930795, guid: 3c0be67ad0ffbf740b245765c80c4ea8, type: 3}
 --- !u!114 &3954558462500862773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +344,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6dd43e58-bfd9-4b3f-8f0e-edee57210670
+    m_ActionName: 'Player/Pause[/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.InputSystem;
 
 public class Jump : MonoBehaviour
@@ -12,7 +13,6 @@ public class Jump : MonoBehaviour
     public float JumpForce;
     public float JumpCancelSupresion = 0.5f;
     public short JumpCount = 0;
-    public short JumpCountMax = 2;
 
     [Header("Grounded")]
     public bool IsGrounded;
@@ -56,19 +56,17 @@ public class Jump : MonoBehaviour
     // JUMP
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(JumpCount <= JumpCountMax) 
+        if(JumpCount < 1) 
             {
             if (context.performed) // JUMP HOLDED; FULL FORCE
             {
                 _rb.AddForce(Vector2.up * JumpForce);
                 JumpCount++;
-                _animator.SetBool("Jump", true);
 
             }
             else if (context.canceled && _rb.linearVelocity.y > 0) // JUMP RELEASED MID AIR, LESS FORCE
             {
                 _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _rb.linearVelocity.y * JumpCancelSupresion);
-                _animator.SetBool("Jump", false);
             }
         }
 

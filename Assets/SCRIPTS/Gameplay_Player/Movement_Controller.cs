@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements.Experimental;
 
 public class Movement_Controller: MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class Movement_Controller: MonoBehaviour
     public Rigidbody2D _rb;
     public Collider2D _clldr;
     public Animator _animator;
+    public Canvas _canvas;
 
     [Header("Input Variables")]
     public float Speed;
@@ -41,6 +43,13 @@ public class Movement_Controller: MonoBehaviour
         // ANIMATOR SETS
         _animator.SetFloat("Running", _rb.linearVelocity.magnitude);
         _animator.SetFloat("Yvelocity", _rb.linearVelocity.y);
+
+    }
+
+    public void Pause() // PAUSE
+    {
+        _canvas.enabled = true;
+        Time.timeScale = 0f;
 
     }
 
@@ -80,6 +89,7 @@ public class Movement_Controller: MonoBehaviour
             transform.localScale = new Vector2(1, 1); // LOOKS RIGHT
         }
     }
+
 
 
     private void OnCollisionEnter2D(Collision2D collided)
