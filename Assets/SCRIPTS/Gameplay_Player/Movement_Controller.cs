@@ -22,6 +22,7 @@ public class Movement_Controller: MonoBehaviour
 
     [Header("Jump Kill")]
     public GameObject _collided;
+    public float AddedJumpPower;
 
 
     private void Awake()
@@ -34,24 +35,15 @@ public class Movement_Controller: MonoBehaviour
     private void Update()
     {
         DebugMove = _rb.linearVelocity;
-        // SEE FUNCTION, TURNING SPRITE AROUND
-        TurnAround();
 
         // RB VELOCITY FOR MOVEMENT
         _rb.linearVelocity = new Vector3(HorizontalMove.x * Speed, _rb.linearVelocity.y);
 
         // ANIMATOR SETS
         _animator.SetFloat("Running", _rb.linearVelocity.magnitude);
-        _animator.SetFloat("Yvelocity", _rb.linearVelocity.y);
-
     }
 
-    public void Pause() // PAUSE
-    {
-        _canvas.enabled = true;
-        Time.timeScale = 0f;
 
-    }
 
     // MOVEMENT
     public void OnMove(InputAction.CallbackContext context)
@@ -63,10 +55,14 @@ public class Movement_Controller: MonoBehaviour
             if (HorizontalMove.x > 0 )
             { // IF LAST INPUT IS RIGHT, LOOKS RIGHT AND KEEPS LOOKING RIGTH
                 LookingRight = true;
+                // SEE FUNCTION, TURNING SPRITE AROUND
+                TurnAround();
             }
             else
             { // IF LAST INPUT IS LEFT, KEEPS LOKING LEFT
                 LookingRight = false;
+                // SEE FUNCTION, TURNING SPRITE AROUND
+                TurnAround();
             }
         }
 
@@ -90,16 +86,25 @@ public class Movement_Controller: MonoBehaviour
         }
     }
 
-
-
     private void OnCollisionEnter2D(Collision2D collided)
     {
         _collided = collided.gameObject; // COLLIDED GAME OBJECT
 
-        if(collided.gameObject.CompareTag("Enemy"))
+        if(collided.gameObject.CompareTag("Spring"))
         {
-
+            PatrollMovement _ptrllr = GetComponent<PatrollMovement>();
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, AddedJumpPower);
         }
+
+    }
+
+
+
+    public void Pause() // PAUSE
+    {
+        _canvas.enabled = true;
+        Time.timeScale = 0f;
+
     }
 
 

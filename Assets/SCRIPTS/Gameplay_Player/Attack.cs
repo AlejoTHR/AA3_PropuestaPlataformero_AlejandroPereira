@@ -14,10 +14,12 @@ public class Attack : MonoBehaviour
     public GameObject arrow;
 
     [Header("Arrow Instantiate properties")]
-    public float arrowOffsetSpanw;
     public float shootCooldown;
     public float shootCooldownMax;
 
+    [Header("Instatiated Arrow Properties")]
+    public Transform ArrowOriginPosition;
+    public GameObject newArrow;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,23 +39,15 @@ public class Attack : MonoBehaviour
     public void OnAttack(InputAction.CallbackContext context)
     {
 
-
         if (context.performed && shootCooldown >= shootCooldownMax)
         {
-            // SETS ARROW INSTANTIATE OFFSET
-            arrowOffsetSpanw = (_mvmntCnrtllr.LookingRight)? 1 : -1;
-
-            // ARROW ORIGIN POSITION
-            Vector3 ArrowOriginPosition = new Vector3(transform.position.x + arrowOffsetSpanw, transform.position.y);
 
             // CREATES GAME OBJECT ARROW WITH PREFAB AND ORIGIN VECTOR
-            GameObject newArrow = Instantiate(arrow, ArrowOriginPosition, transform.rotation);
-            
-            
+            newArrow = Instantiate(arrow, ArrowOriginPosition.position, transform.rotation);
+
+
             shootCooldown = 0;
         }
-
-
 
     }
 

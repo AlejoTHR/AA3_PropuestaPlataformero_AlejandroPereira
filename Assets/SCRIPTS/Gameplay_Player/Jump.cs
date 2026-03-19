@@ -38,11 +38,11 @@ public class Jump : MonoBehaviour
 
         if (hit.collider == null)
         {
-
+            IsGrounded = false;
         }
         else
         {
-            IsGrounded = false;
+            IsGrounded = true;
             JumpCount = 0;
 
             Debug.DrawRay(transform.position, Vector2.down * GroundedCheckSize, Color.green);
@@ -56,6 +56,7 @@ public class Jump : MonoBehaviour
     // JUMP
     public void OnJump(InputAction.CallbackContext context)
     {
+
         if(JumpCount < 1) 
             {
             if (context.performed) // JUMP HOLDED; FULL FORCE
