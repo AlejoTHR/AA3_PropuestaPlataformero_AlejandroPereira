@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3316382482924490802}
   m_Layer: 6
   m_Name: arrow
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,10 +103,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 1
+  m_LinearDamping: 0
   m_AngularDamping: 0.01
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9883a6763c025c540a861a853374beeb, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -114,7 +114,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!70 &7800950252700392611
@@ -163,12 +163,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8377652645269930795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 727f5ec4a00ec364d93ad6e2b424ca30, type: 3}
+  m_Script: {fileID: 11500000, guid: 190b1b450b7b5f9409b903feb65ec094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 0}
-  _colldr: {fileID: 0}
-  _mvmntCnrtllr: {fileID: 9128940810845143522, guid: 6773b2a8d8669714b9ebd7a44992dd08, type: 3}
-  ArrowSpeed: 30
-  ArrowDestroyTime: 10
-  ArrowAngle: {x: 0, y: 0, z: -0.15}
+  _clldr: {fileID: 0}
+  _PlayerPosition: {fileID: 5302730896296282649, guid: 6773b2a8d8669714b9ebd7a44992dd08, type: 3}
+  arrowSpeed: 1
+  arrowAngle: 0

@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Spring
   - GroundCheck
+  - Arrow
   layers:
   - Default
   - TransparentFX
