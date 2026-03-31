@@ -1,3 +1,5 @@
+using TMPro.EditorUtilities;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,7 +8,6 @@ using UnityEngine.InputSystem;
 [RequireComponent (typeof(CapsuleCollider2D))]
 [RequireComponent (typeof(PlayerStats))]
 [RequireComponent (typeof(Animator))]
-
 public class Player_Controller : MonoBehaviour
 {
     [SerializeField] private PlayerStats _PlyrStts;
@@ -19,7 +20,7 @@ public class Player_Controller : MonoBehaviour
     [Header("Horizontal Movement")]
     Vector2 HorizontalMove;
     Vector3 TurningAround = new Vector3(0,180,0);
-    [SerializeField] bool LookingRight = true;
+    [SerializeField] public bool LookingRight = true;
 
     [Header("Jumping")]
     [SerializeField] short JumpCount = 0;
@@ -28,6 +29,7 @@ public class Player_Controller : MonoBehaviour
     [Header("Grounded")]
     [SerializeField] bool IsGrounded;
     [SerializeField] Transform GroundedChecPosition;
+
 
     [Header("Arrow Prefab")]
     public GameObject arrow;
@@ -104,13 +106,18 @@ public class Player_Controller : MonoBehaviour
         if (hit.collider == null) IsGrounded = false;
 
         // IF SOMETHING DOES COLLIEDS
-        else
+        else if(hit.collider.CompareTag("Ground"))
         {
             IsGrounded = true; // IS TOUCHING THE GROUND (SHOULD BE)
             JumpCount = 0; // RESET JUMP COUNT
 
             Debug.DrawRay(transform.position, Vector2.down * _PlyrStts.GroundedCheckSize, Color.green); // CICLE CAST COLOR GREEN
         }
+        else if(hit.collider.CompareTag("Enemy") && !IsGrounded)
+        {
+            _rb.linearVelocity = new Vector3 (_rb.linearVelocity.x, _PlyrStts.Bounce); // JUMPS FROM ENEMY
+        }
+
     }
     // JUMP
     public void OnJump(InputAction.CallbackContext context)
@@ -143,7 +150,8 @@ public class Player_Controller : MonoBehaviour
         {
             // CREATES GAME OBJECT ARROW WITH PREFAB AND ORIGIN VECTOR
             GameObject newArrow = Instantiate(arrow, transform.position, transform.rotation);
-            newArrow.GetComponent<Rigidbody2D>().AddForce(transform.forward * 10000);
+            newArrow.GetComponent<Rigidbody2D>().AddForce(transform.right * _PlyrStts.ArrowSpeed, ForceMode2D.Impulse);
+            Destroy(newArrow, 1.5f);
             shootCooldown = 0; // RESETS COOLDOWN
         }
 

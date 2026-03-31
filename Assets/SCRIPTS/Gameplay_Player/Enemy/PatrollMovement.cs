@@ -1,64 +1,41 @@
-using System.Collections;
-using TreeEditor;
 using UnityEngine;
 
+
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
 public class PatrollMovement : MonoBehaviour
 {
     [Header("Components")]
-    public Rigidbody2D _rb;
-    public Collider2D _clldr;
+    [SerializeField] Transform PointA;
+    [SerializeField] Transform PointB;
 
-    [Header("Initial Atributes")]
-    public Transform[] PatrolPoints; // OBJECTIVE POSITION GAME OBJECT
-    public float WalkSpeed;
-    public int PatrolDestination;
-    public Animator _animator;
-
-    [Header("Collided Game Object")]
-    public GameObject COLLIDED;
-    public float AddJumpPower;
-   
+    [Header("Atributes")]
+    [SerializeField] Vector3 NextPoint;
+    [SerializeField] Vector3 Rotation = new Vector3(0,180,0); //  180 DEGREES
+    [SerializeField] float PlatSpeed;
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _clldr = GetComponent<Collider2D>();
-        _animator = GetComponent<Animator>();
-
-
-        _animator.SetFloat("Walk", _rb.linearVelocity.magnitude);
+        NextPoint = PointA.position; // INSTANCIATES DESTINATION POSITION
     }
 
-    void Update()
-    {
-        Walk();
-    }
-    
-    public void Walk()
-    {
-        if (PatrolDestination == 0) // IF PATROL DESTINATION IS FIRST GAME OBJECT OF ARRAY
-        {   // MOVE TOWARDS FIRST GAME OBJECT OF ARRAY
-            transform.position = Vector2.MoveTowards(transform.position, PatrolPoints[0].position, WalkSpeed * Time.deltaTime);
+    private void Update()
+    {   // MOVES TOWARDS NEXT DESTINATION POSITION
+        transform.position = Vector3.MoveTowards(transform.position, NextPoint, PlatSpeed * Time.deltaTime); 
 
-            if (Vector2.Distance(transform.position, PatrolPoints[0].position) < 0.2f) // IF DISTANCE IS CLOSE
-            {   //  CHANGE DIRECTION AND GAME OBJECT DESTINATION
-                transform.localScale = new Vector3(-1, 1, 1);
-                PatrolDestination = 1;
+        if (transform.position == NextPoint) // IF ARRIVES
+        {
+            if(NextPoint == PointA.position) // ON ARRIVAK POINT A
+            {
+                NextPoint = PointB.position; // NEXT POSITION IS POINT B
+                transform.Rotate(Rotation); // ROTATES TO FACE POINT B
+
             }
-
-        }
-        if (PatrolDestination == 1) // IF PATROL DESTINATION IS SECOND  GAME OBJECT OF ARRAY
-        {   // MOVE TOWARDS SECOND GAME OBJECT OF ARRAY
-            transform.position = Vector2.MoveTowards(transform.position, PatrolPoints[1].position, WalkSpeed * Time.deltaTime);
-
-            if (Vector2.Distance(transform.position, PatrolPoints[1].position) < 0.2f)// IF DISTANCE IS CLOSE
-            {   //  CHANGE DIRECTION AND GAME OBJECT DESTINATION
-                transform.localScale = Vector2.one;
-                PatrolDestination = 0;
+            else if(NextPoint == PointB.position) // NEXT POSOTION IS POINT A
+            {
+                NextPoint = PointA.position; // NEXT POSITION IS POINT A
+                transform.Rotate(Rotation); // ROTATES TO FACE POINT A
             }
-
         }
     }
-
-
 
 }

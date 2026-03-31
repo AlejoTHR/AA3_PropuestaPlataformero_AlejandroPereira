@@ -147,7 +147,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 0}
   _clldr: {fileID: 0}
-  _PlayerPosition: {fileID: 5302730896296282649, guid: 6773b2a8d8669714b9ebd7a44992dd08, type: 3}
-  arrowSpeed: 1
+  _PlyrCntrllr: {fileID: 0}
+  arrowSpeed: 50
   arrowAngle: 0
+  ArrowAngle: {x: 0, y: 0, z: 0}

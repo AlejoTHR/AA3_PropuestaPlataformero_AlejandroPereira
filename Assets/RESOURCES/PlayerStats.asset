@@ -17,7 +17,9 @@ MonoBehaviour:
   JumpCancelSupresion: 0.5
   GroundedCheckSize: 1
   GroundedCheckRadius: 0.6
+  Bounce: 20
   mask:
     serializedVersion: 2
-    m_Bits: 55
-  shootCooldownMax: 1
+    m_Bits: 183
+  shootCooldownMax: 2
+  ArrowSpeed: 20

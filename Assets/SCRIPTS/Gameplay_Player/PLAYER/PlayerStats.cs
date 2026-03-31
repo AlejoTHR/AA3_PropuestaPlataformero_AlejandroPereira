@@ -14,10 +14,12 @@ public class PlayerStats : ScriptableObject
     [Header("Grounded")]
     public float GroundedCheckSize;
     public float GroundedCheckRadius;
+    public float Bounce;
     public LayerMask mask;
 
     [Header("Arrow Instantiate properties")]
     public float shootCooldownMax;
+    public float ArrowSpeed;
 
 
 }
