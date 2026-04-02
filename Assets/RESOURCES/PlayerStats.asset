@@ -15,11 +15,11 @@ MonoBehaviour:
   Speed: 10
   JumpForce: 2000
   JumpCancelSupresion: 0.5
-  GroundedCheckSize: 1
-  GroundedCheckRadius: 0.6
+  GroundedCheckSize: 0.5
+  GroundedCheckRadius: 1
   Bounce: 20
   mask:
     serializedVersion: 2
     m_Bits: 183
   shootCooldownMax: 2
-  ArrowSpeed: 20
+  ArrowSpeed: 30

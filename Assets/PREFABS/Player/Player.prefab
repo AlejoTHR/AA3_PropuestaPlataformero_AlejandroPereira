@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5302730896296282649}
   - component: {fileID: 4251215895876369673}
   - component: {fileID: 2918158446089227505}
-  - component: {fileID: 655725065026892391}
+  - component: {fileID: 6565288342241518868}
   - component: {fileID: 2350412730070369482}
   - component: {fileID: 1038376049786612324}
   - component: {fileID: 6070566863488774911}
@@ -82,12 +82,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3474364980188826942, guid: a5535de8ec388b74db1a7a231b9d517c, type: 3}
+  m_Sprite: {fileID: -3576151578685919624, guid: 6a9a551e4a607694ab701d9b9c8959a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 0.19, y: 0.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -120,7 +120,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &655725065026892391
+--- !u!70 &6565288342241518868
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,8 +154,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.08309132, y: -0.10386413}
-  m_Size: {x: 0.62681544, y: 1.8212525}
+  m_Offset: {x: -0.02, y: 0}
+  m_Size: {x: 1.2, y: 1.4}
   m_Direction: 0
 --- !u!114 &2350412730070369482
 MonoBehaviour:
@@ -178,6 +178,8 @@ MonoBehaviour:
   IsGrounded: 0
   GroundedChecPosition: {fileID: 2867410996912033680}
   arrow: {fileID: 8377652645269930795, guid: 3c0be67ad0ffbf740b245765c80c4ea8, type: 3}
+  Attacked: 0
+  Checkpoint_Position: {x: 0, y: 0, z: 0}
   shootCooldown: 0
 --- !u!114 &1038376049786612324
 MonoBehaviour:
@@ -384,7 +386,7 @@ Transform:
   m_GameObject: {fileID: 7908988512499992112}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

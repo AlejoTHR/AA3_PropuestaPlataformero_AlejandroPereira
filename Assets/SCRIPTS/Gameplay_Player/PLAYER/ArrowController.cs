@@ -19,6 +19,7 @@ public class ArrowController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) 
     {
         if (_clldr == null) return;
+
         if(collision.transform.CompareTag("Ground")) // IF TOUCHES THE GROUND
         {
             _rb.bodyType = RigidbodyType2D.Static; // ARROW STAYS IN PLACE

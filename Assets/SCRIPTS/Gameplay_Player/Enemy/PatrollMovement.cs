@@ -15,12 +15,15 @@ public class PatrollMovement : MonoBehaviour
     [SerializeField] float PlatSpeed;
     private void Awake()
     {
+        if (PointA == null || PointB == null) return;
         NextPoint = PointA.position; // INSTANCIATES DESTINATION POSITION
     }
 
     private void Update()
     {   // MOVES TOWARDS NEXT DESTINATION POSITION
-        transform.position = Vector3.MoveTowards(transform.position, NextPoint, PlatSpeed * Time.deltaTime); 
+        transform.position = Vector3.MoveTowards(transform.position, NextPoint, PlatSpeed * Time.deltaTime);
+
+        if (NextPoint == null) return;
 
         if (transform.position == NextPoint) // IF ARRIVES
         {

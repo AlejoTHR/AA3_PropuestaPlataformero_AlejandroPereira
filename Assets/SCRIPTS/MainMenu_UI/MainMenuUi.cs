@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public class MainMenuUi : MonoBehaviour
 {
     [Header("objects")]
-    public Canvas _canvas;
+    [SerializeField] public Canvas _canvas;
+    [SerializeField] public Player_Controller _plyrCntrllr;
 
     public void StartGame()
     {
@@ -16,10 +17,19 @@ public class MainMenuUi : MonoBehaviour
         Application.Quit();
     }
 
+    public void PAUSE()
+    {
+        Time.timeScale = 0f;
+        _canvas.enabled = true;
+        _plyrCntrllr.enabled = false;
+    }
+
     public void Resume()
     {
         Time.timeScale = 1.0f;
         _canvas.enabled = false;
+        _plyrCntrllr.enabled = false;
+
     }
 
 }
