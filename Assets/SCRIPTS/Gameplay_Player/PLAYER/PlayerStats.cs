@@ -16,10 +16,16 @@ public class PlayerStats : ScriptableObject
     public float GroundedCheckRadius;
     public float Bounce;
     public LayerMask mask;
+    
+    [Header("KeyCount")]
+    public short KeyCount;
 
+    /*
     [Header("Arrow Instantiate properties")]
     public float shootCooldownMax;
     public float ArrowSpeed;
+    */
+
 
 
 }

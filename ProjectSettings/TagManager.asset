@@ -12,6 +12,8 @@ TagManager:
   - Arrow
   - Death
   - Checkpoint
+  - Key
+  - Chest
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - UI
   - Arrow
   - Enemy
-  - 
+  - Spring
   - 
   - 
   - 

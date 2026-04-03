@@ -27,16 +27,13 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] bool IsGrounded;
     [SerializeField] Transform GroundedChecPosition;
 
-
-    [Header("Arrow Prefab")]
-    public GameObject arrow;
-    [SerializeField] bool Attacked;
-
     [Header("Repawn")]
     [SerializeField] Vector3 Checkpoint_Position;
 
-    [Header("Arrow Instantiate properties")]
-    [SerializeField] float shootCooldown;
+    /*
+    [Header("Arrow Prefab")]
+    public GameObject arrow;
+    */
 
     private void Awake()
     {   // START COMPONENTS
@@ -55,18 +52,13 @@ public class Player_Controller : MonoBehaviour
     private void Update()
     {
         if (_rb == null || _clldr == null || _animator == null) Debug.LogWarning("Faltan Componentes");
-
-        shootCooldown += Time.time / 1000; // SHOOT COOLDOWN
-
         JumpDetection();
 
         // RB VELOCITY FOR HORIZONTAL MOVEMENT
         _rb.linearVelocity = new Vector3(HorizontalMove.x * _PlyrStts.Speed, _rb.linearVelocity.y);
 
         // ANIMATOR PArameTER SETS
-        _animator.SetFloat("Running", Mathf.Abs(_rb.linearVelocity.x));
         _animator.SetBool("Jumped", !IsGrounded);
-        _animator.SetBool("Attack", Attacked);
 
     }
 
@@ -75,6 +67,9 @@ public class Player_Controller : MonoBehaviour
     {
         if (context.performed) // IF KEYBINDS PRESSED TO MOVE
         {   // MOVEMENT CHANGES
+
+            _animator.SetBool("Running", true);
+
             HorizontalMove = context.ReadValue<Vector2>();
             Vector3 TurningAround = new Vector3(0, 180, 0);
             if (HorizontalMove.x > 0)
@@ -91,6 +86,8 @@ public class Player_Controller : MonoBehaviour
         }
         else if (context.canceled)// IF KEYBINDS RELEASED, STANDS STILL
         {
+            _animator.SetBool("Running", false);
+
             HorizontalMove = Vector2.zero;
         }
 
@@ -116,12 +113,13 @@ public class Player_Controller : MonoBehaviour
             JumpCount = 0; // RESET JUMP COUNT
 
             Debug.DrawRay(transform.position, Vector2.down * _PlyrStts.GroundedCheckSize, Color.green); // CICLE CAST COLOR GREEN
+            _animator.SetBool("AttackedDown", false);
         }
-        else if(hit.collider.CompareTag("Enemy") && !IsGrounded)
+        else if(hit.collider.CompareTag("Spring") && !IsGrounded)
         {
             _rb.linearVelocity = new Vector3 (_rb.linearVelocity.x, _PlyrStts.Bounce); // JUMPS FROM ENEMY
             JumpCount = 0; // RESET JUMP COUNT
-
+            _animator.SetBool("AttackedDown", false);
         }
 
     }
@@ -153,48 +151,58 @@ public class Player_Controller : MonoBehaviour
     #region ATTACK
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.performed && Input.GetKey(KeyCode.DownArrow) && shootCooldown >= _PlyrStts.shootCooldownMax)
+        if(context.performed && IsGrounded)
         {
-            // CREATES GAME OBJECT ARROW WITH PREFAB AND ORIGIN VECTOR
-            Quaternion Rotate = Quaternion.Euler(0, 0, 270);
-            GameObject newArrow = Instantiate(arrow, transform.position, Rotate);
-            newArrow.GetComponent<Rigidbody2D>().AddForce(transform.up * -1 * _PlyrStts.ArrowSpeed, ForceMode2D.Impulse);
-            Destroy(newArrow, 1.5f);
-            shootCooldown = 0; // RESETS COOLDOWN
-            Attacked = true; // TRIGGERS ATTACK ANIMATION
+            _animator.SetBool("Attacked", true);
         }
 
-        if (context.performed && shootCooldown >= _PlyrStts.shootCooldownMax)
+        if(context.performed && !IsGrounded && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
         {
-            // CREATES GAME OBJECT ARROW WITH PREFAB AND ORIGIN VECTOR
-            Quaternion Rotate = Quaternion.Euler(0, 0, 90);
-            GameObject newArrow = Instantiate(arrow, transform.position+(Vector3.right*2), Rotate);
-            newArrow.GetComponent<Rigidbody2D>().AddForce(transform.right * _PlyrStts.ArrowSpeed, ForceMode2D.Impulse);
-            Destroy(newArrow, 1.5f);
-            shootCooldown = 0; // RESETS COOLDOWN
-            Attacked = true; // TRIGGERS ATTACK ANIMATION
+            _animator.SetBool("AttackedDown", true);
         }
-
-        if (context.canceled)
-        {
-            Attacked = false;
-        }
+    }
+    public void FinishAttkAnim()
+    { 
+        _animator.SetBool("Attacked", false);
+        _animator.SetBool("AttackedDown", false);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
     }
     #endregion
 
-    #region ON TRIGGERS
+    #region ON TRIGGER ENTER'S
     private void OnTriggerEnter2D(Collider2D collided)
     {
         if (collided == null) return;
 
-        if(collided.gameObject.CompareTag("Death"))
+        #region DEATH ZONE n CHECKPOINTS
+        if (collided.gameObject.CompareTag("Death")) // DEATH ZONE COLLSIION
         {
             transform.position = Checkpoint_Position;
         }
-        if(collided.gameObject.CompareTag("Checkpoint"))
+        if(collided.gameObject.CompareTag("Checkpoint")) // CHECK POINT COLLISIOn
         {
             Checkpoint_Position = collided.gameObject.GetComponent<Transform>().position; ;
         }
+        #endregion
+
+        #region KEYS
+        if (collided.gameObject.CompareTag("Key")) // KEY COLLSIION
+        {
+            _PlyrStts.KeyCount++;
+            Destroy(collided.gameObject);
+        }
+
+        #endregion
+
+        #region CHESTS
+        if (collided.gameObject.CompareTag("Chest") && _PlyrStts.KeyCount > 0) // KEY COLLSIION
+        {
+            collided.GetComponent<Animator>().SetBool("IsOpen", true);
+            _PlyrStts.KeyCount--;
+        }
+
+        #endregion
+
     }
     #endregion
+
 }

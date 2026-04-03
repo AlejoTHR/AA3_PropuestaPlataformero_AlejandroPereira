@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8423314870597563897}
   m_Layer: 7
   m_Name: MovPlatform
-  m_TagString: Enemy
+  m_TagString: Spring
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

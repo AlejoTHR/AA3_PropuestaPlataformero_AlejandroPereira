@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4361073706930428825}
   - component: {fileID: 6490898575337468956}
   - component: {fileID: 2426113797416804506}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Platform
-  m_TagString: Enemy
+  m_TagString: Spring
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

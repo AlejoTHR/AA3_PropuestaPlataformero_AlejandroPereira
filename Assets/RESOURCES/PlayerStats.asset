@@ -20,6 +20,5 @@ MonoBehaviour:
   Bounce: 20
   mask:
     serializedVersion: 2
-    m_Bits: 183
-  shootCooldownMax: 2
-  ArrowSpeed: 30
+    m_Bits: 439
+  KeyCount: 0
