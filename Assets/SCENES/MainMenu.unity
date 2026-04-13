@@ -424,6 +424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a189ca928969d64cbdc921fe729d463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvas: {fileID: 0}
+  _plyrCntrllr: {fileID: 0}
 --- !u!114 &482695428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,7 +917,7 @@ GameObject:
   - component: {fileID: 1374435734}
   - component: {fileID: 1374435733}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GAMENAME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -960,7 +962,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hunter's \nMark"
+  m_text: 'LOST
+
+    LIME'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 8b29aaa3eec7468097ff07adfcf29ac9, type: 2}

@@ -20,5 +20,5 @@ MonoBehaviour:
   Bounce: 20
   mask:
     serializedVersion: 2
-    m_Bits: 439
+    m_Bits: 311
   KeyCount: 0

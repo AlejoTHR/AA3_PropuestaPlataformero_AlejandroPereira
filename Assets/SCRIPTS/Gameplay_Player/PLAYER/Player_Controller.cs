@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -8,6 +9,7 @@ using UnityEngine.InputSystem;
 [RequireComponent (typeof(Animator))]
 public class Player_Controller : MonoBehaviour
 {
+    [Header("STATS")]
     [SerializeField] private PlayerStats _PlyrStts;
 
     [Header("Components")]
@@ -29,6 +31,14 @@ public class Player_Controller : MonoBehaviour
 
     [Header("Repawn")]
     [SerializeField] Vector3 Checkpoint_Position;
+
+
+    [Header("Attk Points")]
+    public Transform sideAttkPoint;
+    public Transform downAttkPoint;
+    public float radiusSide;
+    public float radiusDown;
+    public LayerMask enemies;
 
     /*
     [Header("Arrow Prefab")]
@@ -151,20 +161,45 @@ public class Player_Controller : MonoBehaviour
     #region ATTACK
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if(context.performed && IsGrounded)
-        {
-            _animator.SetBool("Attacked", true);
-        }
 
-        if(context.performed && !IsGrounded && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
+        if (context.performed && IsGrounded)
         {
+            Collider2D[] enemyhit = Physics2D.OverlapCircleAll(sideAttkPoint.position, radiusSide, enemies);
+
+            if (enemyhit != null)
+            {
+                Debug.Log("ENEMY HIT");
+            }
+
+            _animator.SetBool("Attacked", true);
+
+        }
+        if (context.performed && !IsGrounded && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
+        {
+            Collider2D enemyhit = Physics2D.OverlapCircle(downAttkPoint.position, radiusSide, enemies);
+            if(enemyhit != null)
+            {
+                _rb.linearVelocity = new Vector2 (_rb.linearVelocity.x, 0);
+                _rb.AddForce(Vector2.up * _PlyrStts.JumpForce);
+            }
+            
             _animator.SetBool("AttackedDown", true);
+
         }
     }
-    public void FinishAttkAnim()
-    { 
-        _animator.SetBool("Attacked", false);
-        _animator.SetBool("AttackedDown", false);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    public void FinishAttkAnim_Sideattk() 
+    {
+        _animator.SetBool("Attacked", false); 
+    }
+    public void FinishAttkAnim_Downattk() 
+    {
+        _animator.SetBool("AttackedDown", false);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(sideAttkPoint.position, radiusSide);
+        Gizmos.DrawWireSphere(downAttkPoint.position, radiusDown);
     }
     #endregion
 
@@ -205,4 +240,12 @@ public class Player_Controller : MonoBehaviour
     }
     #endregion
 
+    #region Pause
+    void _PAUSE()
+    {
+        Time.timeScale = 0f;
+
+    }
+
+    #endregion
 }

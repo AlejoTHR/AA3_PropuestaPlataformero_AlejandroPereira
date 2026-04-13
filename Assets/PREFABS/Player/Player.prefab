@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4854729694176866837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1921251235565919560}
+  m_Layer: 0
+  m_Name: DownAttkColl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1921251235565919560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4854729694176866837}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5302730896296282649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6566647245414358914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4427516406726336955}
+  m_Layer: 0
+  m_Name: SideAttkColl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4427516406726336955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6566647245414358914}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5302730896296282649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7380613533843111963
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +97,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4427516406726336955}
+  - {fileID: 1921251235565919560}
   - {fileID: 2867410996912033680}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -154,8 +218,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.02, y: 0}
-  m_Size: {x: 1.2, y: 1.4}
+  m_Offset: {x: -0.01999998, y: 0.024739921}
+  m_Size: {x: 1.2, y: 1.3505203}
   m_Direction: 0
 --- !u!114 &2350412730070369482
 MonoBehaviour:
@@ -177,10 +241,14 @@ MonoBehaviour:
   JumpCount: 0
   IsGrounded: 0
   GroundedChecPosition: {fileID: 2867410996912033680}
-  arrow: {fileID: 8377652645269930795, guid: 3c0be67ad0ffbf740b245765c80c4ea8, type: 3}
-  Attacked: 0
   Checkpoint_Position: {x: 0, y: 0, z: 0}
-  shootCooldown: 0
+  sideAttkPoint: {fileID: 4427516406726336955}
+  downAttkPoint: {fileID: 1921251235565919560}
+  radiusSide: 1
+  radiusDown: 0.8
+  enemies:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &1038376049786612324
 MonoBehaviour:
   m_ObjectHideFlags: 0
