@@ -11,7 +11,7 @@ public class UI_PopUps : MonoBehaviour
     public UnityEvent onTriggerExit;
     public UnityEvent onTriggerStay;
     [Header("Filters By tag")]
-    public string tag;
+    public string TAG;
 
     private void OnTriggerEnter2D(Collider2D collided)
     {

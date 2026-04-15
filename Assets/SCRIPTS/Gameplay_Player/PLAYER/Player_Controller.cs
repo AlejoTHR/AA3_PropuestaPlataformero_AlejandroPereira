@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -176,15 +175,17 @@ public class Player_Controller : MonoBehaviour
         }
         if (context.performed && !IsGrounded && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
         {
-            Collider2D enemyhit = Physics2D.OverlapCircle(downAttkPoint.position, radiusSide, enemies);
-            if(enemyhit != null)
-            {
-                _rb.linearVelocity = new Vector2 (_rb.linearVelocity.x, 0);
-                _rb.AddForce(Vector2.up * _PlyrStts.JumpForce);
-            }
-            
             _animator.SetBool("AttackedDown", true);
 
+        }
+    }
+    void PogoStart()
+    {
+        Collider2D enemyhit = Physics2D.OverlapCircle(downAttkPoint.position, radiusSide, enemies);
+        if (enemyhit != null)
+        {
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0);
+            _rb.AddForce(Vector2.up * _PlyrStts.JumpForce);
         }
     }
     public void FinishAttkAnim_Sideattk() 
