@@ -74,9 +74,13 @@ GameObject:
   - component: {fileID: 4251215895876369673}
   - component: {fileID: 2918158446089227505}
   - component: {fileID: 6565288342241518868}
-  - component: {fileID: 2350412730070369482}
   - component: {fileID: 1038376049786612324}
   - component: {fileID: 6070566863488774911}
+  - component: {fileID: 4937108360277952902}
+  - component: {fileID: 8455213244498670609}
+  - component: {fileID: 2629304425483608513}
+  - component: {fileID: 9182146504445636799}
+  - component: {fileID: 7838885904893183715}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -221,34 +225,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.01999998, y: 0.024739921}
   m_Size: {x: 1.2, y: 1.3505203}
   m_Direction: 0
---- !u!114 &2350412730070369482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7380613533843111963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c9ea007cfa3ba439bf7e422fd1161f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _PlyrStts: {fileID: 11400000, guid: 27907c02646e7ff49a4ad4b38791df79, type: 2}
-  _rb: {fileID: 0}
-  _clldr: {fileID: 0}
-  _animator: {fileID: 0}
-  LookingRight: 1
-  JumpCount: 0
-  IsGrounded: 0
-  GroundedChecPosition: {fileID: 2867410996912033680}
-  Checkpoint_Position: {x: 0, y: 0, z: 0}
-  sideAttkPoint: {fileID: 4427516406726336955}
-  downAttkPoint: {fileID: 1921251235565919560}
-  radiusSide: 1
-  radiusDown: 0.8
-  enemies:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &1038376049786612324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,8 +252,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2350412730070369482}
-        m_TargetAssemblyTypeName: Player_Controller, Assembly-CSharp
+      - m_Target: {fileID: 4937108360277952902}
+        m_TargetAssemblyTypeName: Horizontal_Movement, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -296,9 +272,9 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/Touchscreen/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2350412730070369482}
+      - m_Target: {fileID: 7380613533843111963}
         m_TargetAssemblyTypeName: Player_Controller, Assembly-CSharp
-        m_MethodName: OnAttack
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -320,8 +296,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Crouch[/Keyboard/c]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2350412730070369482}
-        m_TargetAssemblyTypeName: Player_Controller, Assembly-CSharp
+      - m_Target: {fileID: 2629304425483608513}
+        m_TargetAssemblyTypeName: Vertical_Movement, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
         m_Arguments:
@@ -388,9 +364,9 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7380613533843111963}
         m_TargetAssemblyTypeName: Movement_Controller, Assembly-CSharp
-        m_MethodName: Pause
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -404,8 +380,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Pause[/Keyboard/enter]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2350412730070369482}
-        m_TargetAssemblyTypeName: Player_Controller, Assembly-CSharp
+      - m_Target: {fileID: 9182146504445636799}
+        m_TargetAssemblyTypeName: Player_Attack, Assembly-CSharp
         m_MethodName: OnAttack
         m_Mode: 0
         m_Arguments:
@@ -445,6 +421,93 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4937108360277952902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380613533843111963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69cad15179d3a54287b20318d7ab428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlyrStts: {fileID: 11400000, guid: 27907c02646e7ff49a4ad4b38791df79, type: 2}
+  _rb: {fileID: 0}
+  _animator: {fileID: 0}
+  LookingRight: 1
+--- !u!114 &8455213244498670609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380613533843111963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab8ca25a1356ee47a14e6022fd66129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlyrStts: {fileID: 11400000, guid: 27907c02646e7ff49a4ad4b38791df79, type: 2}
+  _rb: {fileID: 0}
+  _animator: {fileID: 0}
+  _VrtclMvmnt: {fileID: 0}
+  IsGrounded: 0
+  GroundedChecPosition: {fileID: 2867410996912033680}
+--- !u!114 &2629304425483608513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380613533843111963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca89121cb059af479d313a9b8716ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlyrStts: {fileID: 11400000, guid: 27907c02646e7ff49a4ad4b38791df79, type: 2}
+  _rb: {fileID: 0}
+  _GrndDtct: {fileID: 0}
+  JumpCount: 0
+  JumpCountMax: 1
+--- !u!114 &9182146504445636799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380613533843111963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7434e8274b200d54c8173c5cde6e7e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlyrStts: {fileID: 11400000, guid: 27907c02646e7ff49a4ad4b38791df79, type: 2}
+  _rb: {fileID: 0}
+  _animator: {fileID: 0}
+  _GrndDtct: {fileID: 0}
+  sideAttkPoint: {fileID: 4427516406726336955}
+  downAttkPoint: {fileID: 1921251235565919560}
+--- !u!114 &7838885904893183715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380613533843111963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0031f758350d1c94b8ceeb5b0a3586d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlyrStts: {fileID: 11400000, guid: 27907c02646e7ff49a4ad4b38791df79, type: 2}
+  _rb: {fileID: 0}
+  Checkpoint_Position: {x: 0, y: 0, z: 0}
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7908988512499992112
 GameObject:
   m_ObjectHideFlags: 0

@@ -125,12 +125,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Hurt-Sheet_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 37
-        width: 23
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 31
+        y: 38
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.52125394, y: 0.08908963}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,10 +149,10 @@ TextureImporter:
         serializedVersion: 2
         x: 126
         y: 38
-        width: 27
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.54250765, y: 0.053666115}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,10 +171,10 @@ TextureImporter:
         serializedVersion: 2
         x: 221
         y: 38
-        width: 27
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5354233, y: 0.053666234}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,10 +193,10 @@ TextureImporter:
         serializedVersion: 2
         x: 319
         y: 38
-        width: 24
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.51416874, y: 0.0394969}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 73bc937dbf765284384ba90eeeade8ed
     internalID: 0
     vertices: []
     indices: 

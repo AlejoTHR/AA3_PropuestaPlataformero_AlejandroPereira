@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 
@@ -13,6 +14,7 @@ public class PatrollMovement : MonoBehaviour
     [SerializeField] Vector3 NextPoint;
     [SerializeField] Vector3 Rotation = new Vector3(0,180,0); //  180 DEGREES
     [SerializeField] float PlatSpeed;
+
     private void Awake()
     {
         if (PointA == null || PointB == null) return;

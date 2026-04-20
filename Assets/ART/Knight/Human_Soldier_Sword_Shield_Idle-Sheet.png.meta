@@ -131,12 +131,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Idle-Sheet_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 37
-        width: 23
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 30
+        y: 38
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.53199995, y: 0.057333708}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Idle-Sheet_1
       rect:
         serializedVersion: 2
-        x: 129
-        y: 37
-        width: 23
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 126
+        y: 38
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.54799986, y: 0.06266701}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Idle-Sheet_2
       rect:
         serializedVersion: 2
-        x: 225
-        y: 37
-        width: 23
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 223
+        y: 38
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5160003, y: 0.03600037}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Idle-Sheet_3
       rect:
         serializedVersion: 2
-        x: 320
-        y: 37
-        width: 24
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 319
+        y: 38
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.052000523}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Idle-Sheet_4
       rect:
         serializedVersion: 2
-        x: 416
-        y: 37
-        width: 24
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 413
+        y: 38
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.56933403, y: 0.052000523}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Idle-Sheet_5
       rect:
         serializedVersion: 2
-        x: 513
-        y: 37
-        width: 23
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 511
+        y: 38
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.50533295, y: 0.057333708}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 28440f90eb01ed14481c001f407f722d
     internalID: 0
     vertices: []
     indices: 

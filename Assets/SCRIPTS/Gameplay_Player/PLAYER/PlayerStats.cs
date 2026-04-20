@@ -20,6 +20,12 @@ public class PlayerStats : ScriptableObject
     [Header("KeyCount")]
     public short KeyCount;
 
+    [Header("ATTK STATS")]
+    public float radiusSide;
+    public float radiusDown;
+    public LayerMask enemies;
+    public float damage;
+
     /*
     [Header("Arrow Instantiate properties")]
     public float shootCooldownMax;

@@ -33,11 +33,9 @@ public class Player_Controller : MonoBehaviour
 
 
     [Header("Attk Points")]
-    public Transform sideAttkPoint;
-    public Transform downAttkPoint;
-    public float radiusSide;
-    public float radiusDown;
-    public LayerMask enemies;
+    [SerializeField] public Transform sideAttkPoint;
+    [SerializeField] public Transform downAttkPoint;
+
 
     /*
     [Header("Arrow Prefab")]
@@ -51,7 +49,7 @@ public class Player_Controller : MonoBehaviour
         _animator = GetComponent<Animator>();
         if (_PlyrStts == null)
         {
-            Debug.LogWarning("Someone forgot to assign the  Player_Stats to the player!");
+            Debug.LogWarning("Someone forgot to assign the Player_Stats to the player!");
             return;
         }
         Checkpoint_Position = transform.position;
@@ -158,49 +156,45 @@ public class Player_Controller : MonoBehaviour
     #endregion
 
     #region ATTACK
-    public void OnAttack(InputAction.CallbackContext context)
+    void OnAttack(InputAction.CallbackContext context)
     {
-
+        Debug.Log("ATTAKED");
         if (context.performed && IsGrounded)
         {
-            Collider2D[] enemyhit = Physics2D.OverlapCircleAll(sideAttkPoint.position, radiusSide, enemies);
-
-            if (enemyhit != null)
-            {
-                Debug.Log("ENEMY HIT");
-            }
-
+            Collider2D enemyhit = Physics2D.OverlapCircle(sideAttkPoint.position, _PlyrStts.radiusSide, _PlyrStts.enemies);
             _animator.SetBool("Attacked", true);
-
         }
         if (context.performed && !IsGrounded && (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)))
         {
+            Collider2D enemyhit = Physics2D.OverlapCircle(downAttkPoint.position, _PlyrStts.radiusSide, _PlyrStts.enemies);
             _animator.SetBool("AttackedDown", true);
-
         }
     }
-    void PogoStart()
+    void StartDamage(Collider2D enemyhit)// CALLED IN ANIMATOR
     {
-        Collider2D enemyhit = Physics2D.OverlapCircle(downAttkPoint.position, radiusSide, enemies);
+
+        if (enemyhit != null)
+        {
+            Debug.Log(_PlyrStts.damage);
+
+            enemyhit.GetComponent<Controller_Enemy>().health -= _PlyrStts.damage;
+        }
+    }
+    void PogoStart(Collider2D enemyhit) // CALLED IN ANIMATOR
+    {
         if (enemyhit != null)
         {
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0);
             _rb.AddForce(Vector2.up * _PlyrStts.JumpForce);
         }
     }
-    public void FinishAttkAnim_Sideattk() 
-    {
-        _animator.SetBool("Attacked", false); 
-    }
-    public void FinishAttkAnim_Downattk() 
-    {
-        _animator.SetBool("AttackedDown", false);
-    }
+    void FinishAttkAnim_Sideattk() { _animator.SetBool("Attacked", false); } // CALLED IN ANIMATOR
+    void FinishAttkAnim_Downattk() { _animator.SetBool("AttackedDown", false); } // CALLED IN ANIMATOR
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos() // VISIBLE RANGE IN SCENE
     {
-        Gizmos.DrawWireSphere(sideAttkPoint.position, radiusSide);
-        Gizmos.DrawWireSphere(downAttkPoint.position, radiusDown);
+        Gizmos.DrawWireSphere(sideAttkPoint.position, _PlyrStts.radiusSide);
+        Gizmos.DrawWireSphere(downAttkPoint.position, _PlyrStts.radiusDown);
     }
     #endregion
 
@@ -208,6 +202,11 @@ public class Player_Controller : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collided)
     {
         if (collided == null) return;
+
+        if(collided.gameObject.CompareTag("Enemy"))
+        {
+
+        }
 
         #region DEATH ZONE n CHECKPOINTS
         if (collided.gameObject.CompareTag("Death")) // DEATH ZONE COLLSIION

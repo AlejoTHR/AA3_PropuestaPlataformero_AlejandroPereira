@@ -20,5 +20,11 @@ MonoBehaviour:
   Bounce: 20
   mask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 1847
   KeyCount: 0
+  radiusSide: 1
+  radiusDown: 1.5
+  enemies:
+    serializedVersion: 2
+    m_Bits: 128
+  damage: 1

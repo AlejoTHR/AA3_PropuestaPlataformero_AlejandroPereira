@@ -149,12 +149,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Death-Sheet_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 38
-        width: 23
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 20
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.41144174, y: 0.13691103}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,12 +171,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Death-Sheet_1
       rect:
         serializedVersion: 2
-        x: 126
-        y: 38
-        width: 27
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 114
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.47343254, y: 0.13691121}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,12 +193,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Death-Sheet_2
       rect:
         serializedVersion: 2
-        x: 221
-        y: 38
-        width: 13
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 208
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5088558, y: 0.13691133}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Death-Sheet_3
       rect:
         serializedVersion: 2
-        x: 233
-        y: 38
-        width: 19
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 302
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5708461, y: 0.15462291}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -237,12 +237,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Death-Sheet_4
       rect:
         serializedVersion: 2
-        x: 317
-        y: 38
-        width: 13
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 396
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5885577, y: 0.19004655}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -259,12 +259,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Death-Sheet_5
       rect:
         serializedVersion: 2
-        x: 329
-        y: 38
-        width: 21
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 490
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.6151266, y: 0.14576685}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -281,12 +281,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Death-Sheet_6
       rect:
         serializedVersion: 2
-        x: 413
-        y: 38
-        width: 34
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 584
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.6416931, y: 0.15462309}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -303,12 +303,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Death-Sheet_7
       rect:
         serializedVersion: 2
-        x: 509
-        y: 38
-        width: 34
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 678
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.6682615, y: 0.14576703}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -325,12 +325,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Death-Sheet_8
       rect:
         serializedVersion: 2
-        x: 605
-        y: 38
-        width: 34
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 772
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.69482803, y: 0.17233449}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -347,12 +347,12 @@ TextureImporter:
       name: Human_Soldier_Sword_Shield_Death-Sheet_9
       rect:
         serializedVersion: 2
-        x: 701
-        y: 38
-        width: 34
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 866
+        y: 32
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.76567364, y: 0.17233461}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -365,55 +365,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Human_Soldier_Sword_Shield_Death-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 797
-        y: 38
-        width: 34
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 649f76004bf469180800000000000000
-      internalID: -9109005561790727866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Human_Soldier_Sword_Shield_Death-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 893
-        y: 38
-        width: 34
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b063e3f3d990da700800000000000000
-      internalID: 553108900211996171
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7e9b3aa011cfcd144a58fa3b350f9a2a
     internalID: 0
     vertices: []
     indices: 
@@ -425,8 +381,6 @@ TextureImporter:
     nameFileIdTable:
       Human_Soldier_Sword_Shield_Death-Sheet_0: 4102959186315994747
       Human_Soldier_Sword_Shield_Death-Sheet_1: -246963411676352475
-      Human_Soldier_Sword_Shield_Death-Sheet_10: -9109005561790727866
-      Human_Soldier_Sword_Shield_Death-Sheet_11: 553108900211996171
       Human_Soldier_Sword_Shield_Death-Sheet_2: 5373661248380654935
       Human_Soldier_Sword_Shield_Death-Sheet_3: 4492969621933160347
       Human_Soldier_Sword_Shield_Death-Sheet_4: 8736148453087306981
