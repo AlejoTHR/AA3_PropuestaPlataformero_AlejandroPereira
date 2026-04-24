@@ -9,6 +9,7 @@ public class Moving_Plataform : MonoBehaviour
     [Header("ATRIBUTES")]
     [SerializeField] Vector3 NextPoint;
     [SerializeField] float PlatSpeed;
+
     private void Awake()
     {
         NextPoint = PointA.position; // NEXT POSITION ALWAYS STARTS IN A
@@ -26,25 +27,22 @@ public class Moving_Plataform : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collided)
     {
-        if (collided != null) return;
-        if(this.CompareTag("Enemy"))
-        {
+        if (collided == null) return;
+
             if (collided.CompareTag("Player"))
             {
-                collided.gameObject.transform.parent = transform;// PLAYER MOVES WITH PLATFORM
+                gameObject.transform.SetParent(collided.transform);// PLAYER MOVES WITH PLATFORM
             }
-        }
+        
     }
     private void OnTriggerExit2D(Collider2D collided)
     {
-        if (collided != null) return;
+        if (collided == null) return;
 
-        if (this.CompareTag("Enemy"))
-        {
             if (collided.CompareTag("Player"))
             {
-                collided.gameObject.transform.parent = null; // PLAYER MOVES WITHOUT PLATFORM
+                gameObject.transform.SetParent(null); // PLAYER MOVES WITHOUT PLATFORM
             }
-        }
+        
     }
 }

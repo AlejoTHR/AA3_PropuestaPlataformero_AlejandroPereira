@@ -18,7 +18,7 @@ public class PlayerStats : ScriptableObject
     public LayerMask mask;
     
     [Header("KeyCount")]
-    public short KeyCount;
+    public short KeyCount = 0;
 
     [Header("ATTK STATS")]
     public float radiusSide;
